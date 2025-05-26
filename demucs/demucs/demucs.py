@@ -296,6 +296,7 @@ class Demucs(nn.Module):
         super().__init__()
         self.audio_channels = audio_channels
         self.sources = sources
+        self.num_sources = len(self.sources)
         self.kernel_size = kernel_size
         self.context = context
         self.stride = stride
@@ -348,7 +349,8 @@ class Demucs(nn.Module):
             if index > 0:
                 out_channels = in_channels
             else:
-                out_channels = len(self.sources) * audio_channels
+                self.out = nn.Conv1d(channels, self.num_sources * self.audio_channels, 1)
+                # out_channels = len(self.sources) * audio_channels
             if rewrite:
                 decode += [
                     nn.Conv1d(channels, ch_scale * channels, 2 * context + 1, padding=context),
@@ -432,7 +434,7 @@ class Demucs(nn.Module):
             x = julius.resample_frac(x, 2, 1)
         x = x * std + mean
         x = center_trim(x, length)
-        x = x.view(x.size(0), len(self.sources), self.audio_channels, x.size(-1))
+        x = x.view(x.size(0), self.num_sources, self.audio_channels, x.size(-1))
         return x
 
     def load_state_dict(self, state, strict=True):

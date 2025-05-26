@@ -21,7 +21,7 @@ dset:
   channels: 2
   normalize: true
   metadata: ./metadata
-  sources: ['drums', 'bass', 'other', 'vocals', 'quitar', 'saxophone']
+  sources: ['drums', 'bass', 'other', 'vocals', 'guitar', 'saxophone']
   valid_samples: # valid dataset size
   backend: null   # if provided select torchaudio backend.
 
@@ -55,7 +55,7 @@ debug: false
 valid_apply: true
 flag:
 save_every:
-weights: [1., 1., 1., 1.]  # weights over each source for the training/valid loss.
+weights: [1., 1., 1., 1., 1., 1.]  # weights over each source for the training/valid loss.
 
 augment:
   shift_same: false
