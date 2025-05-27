@@ -38,6 +38,6 @@ def mix_stems_to_mixture(track_folder, stems=None, output_filename="mixture.wav"
 
 
 if __name__ == "__main__":
-    mix_stems_to_mixture(r"C:\Users\조은시\Desktop\GIST\3학년 1학기\딥러닝 - 이규빈\최종프로젝트\sample_dataset\mega_augmented_ds\mega_augmented_ds\mydataset\t1",
+    mix_stems_to_mixture(r"C:\Users\조은시\Desktop\GIST\sample_dataset\mega_augmented_ds\mega_augmented_ds\mydataset\track1",  #데이터셋 있는 파일 경로
         stems=['bass', 'drums', 'guitar', 'piano'] 
     )
