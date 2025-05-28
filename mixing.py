@@ -4,7 +4,7 @@ import numpy as np
 
 def mix_stems_to_mixture(track_folder, stems=None, output_filename="mixture.wav"):
     if stems is None:
-        stems = ['vocals', 'drums', 'bass', 'guitar', 'saxophone', 'other']
+        stems = ['vocals', 'drums', 'bass', 'other']
 
     stem_paths = [os.path.join(track_folder, f"{stem}.wav") for stem in stems]
     audio_list = []
