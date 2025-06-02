@@ -1,19 +1,19 @@
 import torch
 import torchaudio
 import os
-from demucs.demucs.demucs import Demucs  # 경로는 실제 환경에 맞게 조정 필요
-sources = ["drums", "saxophone", "vocals", "other"] #source 지정하는 코드가 demucs안에 있으면 중복 조심
+#from seperator.seperator.seperator import seperator  # 경로는 실제 환경에 맞게 조정 필요
+sources = ["drums", "saxophone", "vocals", "other"] #source 지정하는 코드가 seperator안에 있으면 중복 조심
 #import sys
-#sys.path.append("C:/Users/.../Desktop/.../demucs")
+#sys.path.append("C:/Users/.../Desktop/.../seperator")
 
 
 MODEL_PATH = "best.th"
 INPUT_AUDIO = "input.wav"
 OUTPUT_DIR = "separated_stems"
-SAMPLE_RATE = 44100  # Demucs는 일반적으로 44.1kHz 오디오 사용
+SAMPLE_RATE = 44100  # 일반적으로 44.1kHz 오디오 사용
 
 print("모델 초기화 중...")
-model = Demucs(sources=sources)
+model = seperator(sources=sources)
 state = torch.load(MODEL_PATH, map_location="cpu")
 
 # 일부 체크포인트는 'model.state_dict()' 없이 바로 state가 dict인 경우도 있음
