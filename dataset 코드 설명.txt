@@ -3,7 +3,7 @@ download_track_list.py / integrate_sax.py / render_sax.py는 / mixing.py 데이�
 - download_track_list.py : Slakh2100(축소판) 레포지토리에서 색소폰 스템이 포함된 트랙 목록을 조회, 해당 트랙의 mix.flac 및 all_src.mid 파일을 다운로드.
 - render_sax.py : 다운로드한 각 트랙의 all_src.mid에서 색소폰 MIDI 파트만 추출, FluidR3_GM SoundFont로 44.1 kHz(또는 지정한 샘플레이트) 색소폰 wav 파일을 렌더링하여 저장. (코러스, 리버브 설정)
 - integrate_sax.py : musdb18-hq 데이터셋의 각 곡 폴더에 색소폰 wav파일을 하나씩 대응시키고, 패딩 또는 잘라서 길이를 맞춰서 saxophone.wav로 추가, 원본 4개 스템(bass, drums, vocals, other)과 함께 단순 합산(피크 정규화 포함)하여 최종 mixture.wav를 생성.
-- mixing.py : wav 파일들을 mixing하기 위한 코드 초안. 최종 과정에서는 사용되지 않음.
+- mixing.py : wav 파일들을 mixing하기 위한 코드 초안.
 
 - environment-cuda.yml : 아나콘다 가상 환경설정에 사용. 이 파일로 환경 설정 후 conda install "numpy<2"로 버전 낮추는 과정 필요함. 환경에 따라 pytorch 관련 라이브러리 재설치 필요.
 
